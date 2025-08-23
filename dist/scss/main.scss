@@ -1,0 +1,66 @@
+/*Dark Mode*/
+:root {
+  color-scheme: light dark;
+}
+/*Add custom font sen*/
+@font-face {
+    font-family: 'Sen';
+    src: url('/scss/sen/Sen-VariableFont_wght.ttf') format('truetype');
+}
+/*Sen Font + 0.5em margin*/
+@mixin sen_margin{
+    font-family: 'Sen', sans-serif;
+    margin-block: 0.5em;
+}
+$dark-grey2: #555;
+$white1: #bbb;
+$light-cyan2: #0aa;
+$light-cyan1: #0ff;
+
+$white2: #aaa;
+$dark-grey1: #333;
+$dark-cyan1: #005a5a;
+$dark-cyan2: #008b8b;
+
+/*Login Screen fills the whole screen*/
+#login-screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    /*The login title margin*/
+    #login-title{
+        @include sen_margin;
+        color: light-dark($dark-grey2, $white2);
+    }
+    /*The container containing the form and the title*/
+    #login-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: light-dark($light-cyan1, $dark-cyan2);
+        padding: 2em;
+        box-shadow: inset 0px 0px 0.3em 0.3em light-dark($light-cyan2, $dark-cyan1);
+        border-radius: 2em;
+        /*The form itself*/
+        #login-form{
+            #login-output{
+                p{
+                    @extend #login-submit;
+                    font-size: small;
+                }
+            }
+            #login-submit, label, input{
+                @include sen_margin;
+            }
+            width: fit-content;
+            font-size: larger;
+        }
+    }
+}
+/*Override the default body margin*/
+body{
+    margin: 0;
+    background-color: light-dark($white1, $dark-grey1);
+}
