@@ -28,7 +28,7 @@ function copy_token(){
 // Login function
 var token;
 async function login(username, passw){
-    const response = await fetch('https://army-api.onrender.com/', {
+    const response = await fetch('https://army-api.onrender.com/login', {
       	method: 'POST',
       	headers: {
         	'Content-Type': 'application/json',
